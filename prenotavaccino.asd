@@ -7,6 +7,7 @@
   :version "0.0.1"
 
   :depends-on (
+                 #:bordeaux-threads
                  #:drakma
                  #:local-time
                  #:st-json

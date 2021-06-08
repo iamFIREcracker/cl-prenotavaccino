@@ -28,9 +28,9 @@ Quickload the defined system:
     .....
     ("prenotavaccino")
 
-Call PRENOTAVACCINO:RUN:
+Call PRENOTAVACCINO:START:
 
-    > (prenotavaccino:run)
+    > (prenotavaccino:start)
 
 Note: the scraper uses Twilio to send notification SMSs when "something
 changed"; the following environment variables can be used to provide your
@@ -43,10 +43,14 @@ Twilio account:
 - `TWILIO_TO_NUMBERS`: who to send messages to (space separated list)
 
 If any of these environment variables is found empty, you will be prompted to
-provide a value as soon as RUN is invoked:
+provide a value as soon as START is invoked:
 
-    > (prenotavaccino:run)
+    > (prenotavaccino:start)
     TWILIO_ACCOUNT_SID=qwerasdfzxcv
     TWILIO_AUTH_TOKEN=qwerasdfzxcv
     TWILIO_FROM_NUMBER=+12345678
     TWILIO_TO_NUMBERS=+23456789 +345678901
+
+To stop the scraper simply call the STOP function:
+
+    > (prenotavaccino:stop)

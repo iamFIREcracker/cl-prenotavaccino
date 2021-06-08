@@ -141,9 +141,19 @@
         (force-output *query-io*)
         (read-line *query-io*))))
 
-(defun run ()
+(defvar *runner* nil)
+
+(defun start ()
+  (when *runner*
+    (restart-case (error "Already running")
+      (continue () :report "Restart" (stop))))
   (let ((*twilio-account-sid* (getenv-or-readline "TWILIO_ACCOUNT_SID"))
         (*twilio-auth-token* (getenv-or-readline "TWILIO_AUTH_TOKEN"))
         (*twilio-from* (getenv-or-readline "TWILIO_FROM_NUMBER"))
         (*twilio-to* (getenv-or-readline "TWILIO_TO_NUMBERS")))
-    (main)))
+    (setf *runner* (bt:make-thread #'main :name "PRENOTAVACCINO"))))
+
+(defun stop ()
+  (prog1
+      (bt:destroy-thread *runner*)
+    (setf *runner* nil)))
