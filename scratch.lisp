@@ -1,8 +1,10 @@
 #; Scratch
-(setf drakma:*header-stream* nil)
+(in-package :prenotavaccino)
+
+(setf drakma:*header-stream* t)
 
 (fetch-categories)
-(categories-changed-p)
+(categories-activated-p)
 
 (sms-body)
 (send-sms)
