@@ -1,6 +1,8 @@
 (uiop:define-package #:prenotavaccino
-  (:export run))
-(in-package :prenotavaccino)
+  (:export
+   #:start
+   #:stop))
+(in-package #:prenotavaccino)
 
 (defun main ()
   (loop
