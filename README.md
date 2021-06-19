@@ -34,8 +34,7 @@ Call PRENOTAVACCINO:START:
 
 Note: the scraper uses Twilio to send notification SMSs when "something
 changed"; the following environment variables can be used to provide your
-Twilio's account details
-Twilio account:
+Twilio's account details:
 
 - `TWILIO_ACCOUNT_SID`: your account SID
 - `TWILIO_AUTH_TOKEN`: the authentication token
